@@ -38,9 +38,33 @@ public class MindentTudoGep {
         dalok[2] = "BABY I'M BACK";
     }
     private void generalLottoSzelveny(){
-        for (int i = 0; i < 5; i++) {
-            lottoSzelveny[i] += Math.random()* 90;
+        int db= 0;
+        int v;
+        while (db < this.lottoSzelveny.length) {            
+            v = rn.nextInt(90);
+            if (!benneVan(lottoSzelveny, v, db)) {
+                this.lottoSzelveny[db] = v;
+                db++;
+            }
         }
+    }
+    public String[] kerLottoSzelveny(){
+        String[] lottoSzamok = new String(this.lottoSzelveny.length);
+        for (int i = 0; i < this.lottoSzelveny; i++) {
+            lottoSzamok[i] += this.lottoSzelveny;
+            
+        }
+        
+        return lottoSzamok;
+        
+    }
+    private boolean benneVan(int[] t,int v,int db){
+        int i = 0;
+        while (db<5 && !(t[i] == v) ) {            
+            i++;
+        }
+        return i>0;
+        
     }
     private void generalTotoSzelveny(){
         int randomSzam = rn.nextInt(1,14);
